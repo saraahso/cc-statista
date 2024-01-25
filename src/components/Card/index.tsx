@@ -1,6 +1,7 @@
 import { StatistaItem } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
 type CardProps = {
 	post: StatistaItem;
@@ -24,13 +25,7 @@ export default function Card({ post }: CardProps) {
 				<div className="text-stblack font-bold text-xl mb-2">{title}</div>
 				<p className="text-gray-700 text-base">{subject}</p>
 				<Link href="#" className="flex text-stblue bottom-0 absolute">
-					<Image
-						src="./arrow-right.svg"
-						width={15}
-						height={15}
-						alt="Arrow Right"
-						className="mr-3"
-					/>
+					<ArrowLongRightIcon className="w-6 h-6 mr-3" />
 					More information
 				</Link>
 			</div>
