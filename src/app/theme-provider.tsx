@@ -1,16 +1,15 @@
 "use client";
 
-import { StatistaItem } from "@/lib/types";
 import { createContext, useState } from "react";
 
 const initialState: ThemeContextType = {
-	searchResult: [],
-	setSearchResult: () => {},
+	query: "",
+	setQuery: () => {},
 };
 
 export type ThemeContextType = {
-	searchResult: Array<StatistaItem>;
-	setSearchResult: (searchQuery: Array<StatistaItem>) => void;
+	query: string;
+	setQuery: (searchQuery: string) => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>(initialState);
@@ -20,10 +19,10 @@ export default function ThemeProvider({
 }: {
 	children: React.ReactNode;
 }) {
-	const [searchResult, setSearchResult] = useState<Array<StatistaItem>>([]);
+	const [query, setQuery] = useState("");
 
 	return (
-		<ThemeContext.Provider value={{ searchResult, setSearchResult }}>
+		<ThemeContext.Provider value={{ query, setQuery }}>
 			{children}
 		</ThemeContext.Provider>
 	);

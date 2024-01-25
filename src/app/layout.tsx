@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import ThemeProvider from "./theme-provider";
 import "./globals.css";
+import { ReactQueryProvider } from "./react-query-provider";
 
 const open_sans = Open_Sans({
 	weight: ["300", "400", "500", "600", "700", "800"],
@@ -22,10 +23,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`w-full min-h-screen ${open_sans.className}`}>
-				<ThemeProvider>
-					<Header />
-					{children}
-				</ThemeProvider>
+				<ReactQueryProvider>
+					<ThemeProvider>
+						<Header />
+						{children}
+					</ThemeProvider>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);

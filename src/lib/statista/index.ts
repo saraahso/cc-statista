@@ -1,7 +1,6 @@
-"use server";
-export async function getStatistaData() {
-	const response = await fetch("/api/search");
-	const data = await response.json();
+export async function getStatistaData(isResult = false) {
+	const res = await fetch("/api/search");
+	const data = await res.json();
 
-	return data;
+	return data.items;
 }

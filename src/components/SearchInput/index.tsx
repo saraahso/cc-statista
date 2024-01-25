@@ -4,22 +4,7 @@ import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 
 export default function SearchInput() {
-	const [query, setQuery] = useState("");
-	const { setSearchResult } = useContext(ThemeContext);
-
-	useEffect(() => {
-		async function startFetching() {
-			const res = await fetch("/api/search");
-			const data = await res.json();
-			setSearchResult(data.items);
-		}
-
-		let ignore = false;
-		startFetching();
-		return () => {
-			ignore = true;
-		};
-	}, []);
+	const { query, setQuery } = useContext(ThemeContext);
 
 	return (
 		<div className="relative w-3/5 mt-12 shadow-sm">
