@@ -4,7 +4,10 @@ import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 
 type CarouselImagesProps = {
-	images: [];
+	images: Array<{
+		src: string;
+		width?: number; // Include other properties if needed
+	}>;
 };
 export default function CarouselImages({ images }: CarouselImagesProps) {
 	return (
