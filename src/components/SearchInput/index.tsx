@@ -7,7 +7,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export default function SearchInput() {
 	const [query, setQuery] = useState("");
-	const { buttonSearch, setButtonSearch } = useContext(ThemeContext);
+	const { setButtonSearch } = useContext(ThemeContext);
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { push } = useRouter();

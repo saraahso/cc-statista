@@ -6,7 +6,7 @@ import Image from "next/image";
 type CarouselImagesProps = {
 	images: Array<{
 		src: string;
-		width?: number; // Include other properties if needed
+		width?: number;
 	}>;
 };
 export default function CarouselImages({ images }: CarouselImagesProps) {
