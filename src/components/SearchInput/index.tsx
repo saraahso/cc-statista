@@ -2,30 +2,31 @@
 import { ThemeContext } from "@/app/theme-provider";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export default function SearchInput() {
-	const { query, setQuery, buttonSearch, setButtonSearch } =
-		useContext(ThemeContext);
+	const [query, setQuery] = useState("");
+	const { buttonSearch, setButtonSearch } = useContext(ThemeContext);
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { push } = useRouter();
+	const params = new URLSearchParams(searchParams);
 
 	const handleOnClick = () => {
-		const params = new URLSearchParams(searchParams);
-		if (query) {
-			params.set("query", query);
-		} else {
-			params.delete("query");
-		}
 		if (query.toLowerCase() === "statista") {
 			setButtonSearch(true);
+			params.set("q", query);
 		} else {
 			setButtonSearch(false);
+			params.delete("q");
 		}
 		push(`${pathname}?${params.toString()}`);
 	};
+
+	useEffect(() => {
+		if (params.get("q") === "statista") setButtonSearch(true);
+	}, []);
 
 	return (
 		<div className="relative w-3/5 mt-12 shadow-sm">
@@ -40,7 +41,7 @@ export default function SearchInput() {
 			/>
 			<button
 				type="submit"
-				onClick={() => handleOnClick()}
+				onClick={handleOnClick}
 				className="absolute flex items-center px-8 inset-y-0 right-0 bg-stblue text-white rounded-l-none rounded-r-md cursor-pointer"
 			>
 				Statista Search <MagnifyingGlassIcon className="w-4 h-4 ml-4" />

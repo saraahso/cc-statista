@@ -3,20 +3,21 @@ import Link from "next/link";
 
 export default function Header() {
 	return (
-		<nav className="w-full h-20">
+		<nav className="w-full h-20 bg-stblack text-white">
 			<div className="container h-full flex items-center justify-between mx-auto">
-				<Link href="#" className="relative">
+				<Link href="/" className="relative">
 					<Image
-						src="./statista.svg"
+						src="/statista.svg"
 						width={184}
 						height={36}
 						priority
 						alt="Statista Logo"
+						className="invert"
 					/>
 				</Link>
-				<ul>
+				<ul className="text-xl capitalize">
 					<li>
-						<Link href="#">Favorites</Link>
+						<Link href="/favorites">Favorites</Link>
 					</li>
 				</ul>
 			</div>
