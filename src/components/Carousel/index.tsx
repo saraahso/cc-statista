@@ -11,15 +11,16 @@ type CarouselImagesProps = {
 };
 export default function CarouselImages({ images }: CarouselImagesProps) {
 	return (
-		<Carousel>
+		<Carousel autoPlay>
 			{images.map((image, index) => (
 				<Image
 					key={index}
 					src={image.src}
-					width={300}
-					height={300}
+					width={500}
+					height={500}
 					alt={`Image`}
-					className="object-center"
+					objectFit="contain"
+					layout="responsive"
 				/>
 			))}
 		</Carousel>
