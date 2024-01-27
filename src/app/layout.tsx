@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import ThemeProvider from './theme-provider';
 import './globals.css';
 import { ReactQueryProvider } from './react-query-provider';
+import Footer from '@/components/Footer';
 
 const open_sans = Open_Sans({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -27,6 +28,7 @@ export default function RootLayout({
           <ThemeProvider>
             <Header />
             {children}
+            <Footer />
           </ThemeProvider>
         </ReactQueryProvider>
       </body>
