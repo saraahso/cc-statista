@@ -24,8 +24,6 @@ export default function SearchInput() {
     push(`${pathname}?${params.toString()}`);
   };
 
-  console.log(pathname, searchParams);
-
   useEffect(() => {
     if (params.get('q') === 'statista') setButtonSearch(true);
   }, []);
