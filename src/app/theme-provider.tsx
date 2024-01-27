@@ -1,36 +1,35 @@
-"use client";
+'use client';
 
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 const initialState: ThemeContextType = {
-	buttonSearch: false,
-	setButtonSearch: () => {},
-	isFavorite: [],
-	setIsFavorite: () => {},
+  buttonSearch: false,
+  setButtonSearch: () => {},
+  isFavorite: [],
+  setIsFavorite: () => {},
 };
 
 export type ThemeContextType = {
-	buttonSearch: boolean;
-	setButtonSearch: (buttonSearch: boolean) => void;
-	isFavorite: Array<number>;
-	setIsFavorite: (isFavorite: Array<number>) => void;
+  buttonSearch: boolean;
+  setButtonSearch: (buttonSearch: boolean) => void;
+  isFavorite: Array<number>;
+  setIsFavorite: (isFavorite: Array<number>) => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>(initialState);
 
 export default function ThemeProvider({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	const [buttonSearch, setButtonSearch] = useState(false);
-	const [isFavorite, setIsFavorite] = useState<number[]>([]);
+  const [buttonSearch, setButtonSearch] = useState(false);
+  const [isFavorite, setIsFavorite] = useState<number[]>([]);
 
-	return (
-		<ThemeContext.Provider
-			value={{ buttonSearch, setButtonSearch, isFavorite, setIsFavorite }}
-		>
-			{children}
-		</ThemeContext.Provider>
-	);
+  return (
+    <ThemeContext.Provider
+      value={{ buttonSearch, setButtonSearch, isFavorite, setIsFavorite }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }

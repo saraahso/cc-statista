@@ -8,7 +8,7 @@ export type StatistaItem = {
 	premium: number;
 	image_url: string;
 	teaser_image_urls: Array<{
-		width: number;
+		width?: number | null;
 		src: string;
 	}>;
 };
